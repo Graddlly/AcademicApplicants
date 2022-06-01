@@ -1,0 +1,90 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AcademicApplicants.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="1200" Height="600" CanResize="False"
+        x:Class="AcademicApplicants.Views.MainWindow"
+        Icon="/Assets/chelNew.png"
+        Title="ЕТИС ПГНИУ - Приемная комиссия"
+        TransparencyLevelHint="AcrylicBlur">
+    
+    <!-- ReSharper disable InconsistentNaming -->
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="True">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+        
+        <Panel Margin="20">
+            <StackPanel>
+                <Border Width="1170" Height="40" Background="Purple"
+                        Margin="0,-10,0,0"
+                        CornerRadius="12"
+                        BorderThickness="1" BorderBrush="Black"
+                        BoxShadow="2 2 2 1 Black">
+                </Border>
+                
+                <TextBlock HorizontalAlignment="Center" FontStyle="Normal" 
+                           FontSize="20" FontWeight="Bold" Foreground="#C0C0C0"
+                           Margin="0,-30,0,0">
+                    Абитуриенты ПГНИУ
+                </TextBlock>
+
+                <Image Width="35" Height="35"
+                       Margin="1110,-40,0,0"
+                       Source="../Assets/PSU.png"/>
+                
+                <DataGrid Margin="200,10,0,0"
+                          Height="530" IsReadOnly="True"
+                          AutoGenerateColumns="False"
+                          CanUserReorderColumns="False"
+                          CanUserResizeColumns="False"
+                          CanUserSortColumns="True"
+                          Name="DG_Main">
+                </DataGrid>
+                
+                <StackPanel Margin="0,-500, 10,0">
+                    <RadioButton Margin="0,0,0,5"
+                                 Name="RB_Applicants">Абитуриенты</RadioButton>
+                    <RadioButton Margin="0,0,0,5"
+                                 Name="RB_Marks">Оценки</RadioButton>
+                    <RadioButton Margin="0,0,0,5"
+                                 Name="RB_Passport">Паспортные данные</RadioButton>
+                    <RadioButton Margin="0,0,0,5"
+                                 Name="RB_Groups">Группы</RadioButton>
+                    <RadioButton Margin="0,0,0,5"
+                                 Name="RB_Faculties">Факультеты</RadioButton>
+                    <RadioButton Margin="0,0,0, 5"
+                                 Name="RB_Registrations">Регистрации</RadioButton>
+                    <RadioButton Name="RB_Specialties">Специальности</RadioButton>
+                    
+                    <Button Margin="0,170,0,0"
+                            Width="180" Click="B_Update_OnClick"
+                            Foreground="#C0C0C0" 
+                            Name="B_Update">Обновить</Button>
+                    <Button Margin="0,10,0,0"
+                            Width="180" Click="B_Add_OnClick"
+                            Foreground="#C0C0C0"
+                            Name="B_Add">Добавить</Button>
+                    <Button Margin="0, 10, 0, 0"
+                            Width="180" Click="B_Delete_OnClick"
+                            Foreground="#C0C0C0"
+                            Name="B_Delete">Удалить</Button>
+                </StackPanel>
+            </StackPanel>
+        </Panel>
+        
+        <TextBlock Margin="20,572,0,0"
+                   Foreground="#606060">Дмитрий Новицкий© 2022</TextBlock>
+    </Panel>
+</Window>

@@ -1,0 +1,119 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="650" Height="590"
+        x:Class="AcademicApplicants.Views.AddWindow"
+        Title="Добавление абитуриента" CanResize="False"
+        Icon="/Assets/chelNew.png"
+        TransparencyLevelHint="AcrylicBlur">
+    
+    <!-- ReSharper disable InconsistentNaming -->
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="True">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+        
+        <Panel Margin="20">
+            <StackPanel>
+                <Border Width="600" Height="40" Background="Purple"
+                        Margin="0,-10,0,0"
+                        CornerRadius="12"
+                        BorderThickness="1" BorderBrush="Black"
+                        BoxShadow="2 2 2 1 Black">
+                </Border>
+                    
+                <TextBlock HorizontalAlignment="Center" FontStyle="Normal" 
+                       FontSize="19" FontWeight="Bold" Foreground="#C0C0C0"
+                       Margin="0,-30,0,0">
+                    Добавление абитуриента
+                </TextBlock>
+                
+                <Image Width="35" Height="35"
+                       Margin="540,-40,0,0"
+                       Source="../Assets/PSU.png"/>
+            </StackPanel>
+            
+            <StackPanel Margin="0,40,360,0">
+                <Label HorizontalAlignment="Center"
+                       Margin="40,5,0,15">
+                    Информация об абитуриенте
+                </Label>
+                <TextBox Watermark="ФИО" Width="300" Height="37" Name="TB_FullName"
+                         Margin="25,0,0,10"/>
+                <Label Margin="0,-10,0,-45" Height="37">Дата</Label>
+                <Label Margin="0,15,0,-45">рождения</Label>
+                <DatePicker Width="210" Height="37" 
+                            Margin="90,0,0,10" Name="DP_Birthday"/>
+                <TextBox Watermark="Серия и номер паспорта" Width="300" Height="37" Name="TB_SNumberPassport"
+                                Margin="25,0,0,10"/>
+                <TextBox Watermark="Кем выдан паспорт" Width="300" Height="37" Name="TB_WhoIssuedPassport"
+                         Margin="25,0,0,10"/>
+                <Label Margin="0,-10,0,-45" Height="37">Когда</Label>
+                <Label Margin="0,15,0,-45">выдан</Label>
+                <DatePicker Width="210" Height="37" 
+                            Margin="90,0,0,10" Name="DP_WhenIssuedPassport"/>
+                <TextBox Watermark="Учебное заведение" Width="300" Height="37" Name="TB_Institution"
+                         Margin="25,0,0,10"/>
+                <Label Margin="0,-10,0,-45" Height="37">Дата окон.</Label>
+                <Label Margin="0,15,0,-45">уч. зав.</Label>
+                <DatePicker Width="210" Height="37" Name="DP_EndInstitution"
+                            Margin="90,0,0,0"/>
+                <CheckBox Width="300" Padding="80,0,0,0"
+                          Margin="0,10,0,10" Height="37"
+                          FontWeight="Bold" Name="CB_GoldMedal">Золотая медаль</CheckBox>
+                <TextBox Watermark="Номер документа об образован." Width="300" Height="37"
+                         Margin="25,5,0,0" Name="TB_Certificate"/>
+            </StackPanel>
+            
+            <StackPanel Margin="350,40,0,0">
+                <Label HorizontalAlignment="Center"
+                       Margin="0,5,0,15">
+                    Информация о поступлении
+                </Label>
+                <Label Margin="0,15,0,-40">ID факультета</Label>
+                <NumericUpDown Value="1" Increment="1" Minimum="1" Maximum="13"
+                               Margin="110,0,0,0" ClipValueToMinMax="True" 
+                               Name="NUD_Faculty"/>
+                <Label Margin="0,15,0,-40">ID группы</Label>
+                <NumericUpDown Value="1" Increment="1" Minimum="1" Maximum="5"
+                               Margin="110,0,0,0" ClipValueToMinMax="True" 
+                               Name="NUD_Group"/>
+                <Label Margin="0,0,0,-45" Height="37">ID</Label>
+                <Label Margin="0,20,0,-45">специальности</Label>
+                <NumericUpDown Value="1" Increment="1" Minimum="1" Maximum="8"
+                               Margin="110,0,0,0" ClipValueToMinMax="True" 
+                               Name="NUD_Speciality"/>
+                
+                <Label HorizontalAlignment="Center"
+                       Padding="20"
+                       Margin="0,30,0,0">Информация об экзаменах</Label>
+                <Label Margin="0,15,0,-40">Экзамен №1</Label>
+                <NumericUpDown Value="2" Increment="1" Minimum="2" Maximum="5"
+                               Margin="110,0,0,0" ClipValueToMinMax="True" 
+                               Name="NUD_Exam1"/>
+                <Label Margin="0,15,0,-40">Экзамен №2</Label>
+                <NumericUpDown Value="2" Increment="1" Minimum="2" Maximum="5"
+                               Margin="110,0,0,0" ClipValueToMinMax="True" 
+                               Name="NUD_Exam2"/>
+                <Label Margin="0,15,0,-40">Экзамен №3</Label>
+                <NumericUpDown Value="2" Increment="1" Minimum="2" Maximum="5"
+                               Margin="110,0,0,0" ClipValueToMinMax="True"
+                               Name="NUD_Exam3"/>
+            </StackPanel>
+            
+            <Button HorizontalAlignment="Stretch"
+                    Margin="250,510,0,0" Click="B_Add_OnClick"
+                    Width="200" Name="B_Add">Добавить</Button>
+            <Button HorizontalAlignment="Stretch"
+                    Margin="-250,510,0,0" Click="B_Clear_OnClick"
+                    Width="200" Name="B_Clear">Очистить</Button>
+        </Panel>
+    </Panel>
+</Window>
