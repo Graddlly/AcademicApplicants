@@ -85,6 +85,6 @@
         </Panel>
         
         <TextBlock Margin="20,572,0,0"
-                   Foreground="#606060">Дмитрий Новицкий© 2022</TextBlock>
+                   Foreground="#606060">Graddlly© 2022</TextBlock>
     </Panel>
 </Window>
